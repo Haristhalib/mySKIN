@@ -16,4 +16,11 @@
     <string name="sun_screen">Sun Screen</string>
     <string name="serum">Serum</string>
     <string name="moist">Moisturizer</string>
+    <string name="tonertl">TONER</string>
+    <string name="sun_screentl">SUN SCREEN</string>
+    <string name="serumtl">SERUM</string>
+    <string name="moisttl">MOISTURIZER</string>
+    <string name="product">PRODUCT</string>
+    <string name="news_detail">NEWS</string>
+    <string name="about_us">ABOUT US</string>
 </resources>
