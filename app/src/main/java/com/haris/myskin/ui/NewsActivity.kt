@@ -1,10 +1,14 @@
 package com.haris.myskin.ui
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -14,6 +18,7 @@ import com.haris.myskin.R
 import com.haris.myskin.adapter.NewsViewPagerAdapter
 import com.haris.myskin.adapter.TipsViewPageAdapter
 import com.haris.myskin.databinding.ActivityNewsBinding
+import android.Manifest
 import kotlin.math.abs
 
 class NewsActivity : AppCompatActivity() {
@@ -23,10 +28,40 @@ class NewsActivity : AppCompatActivity() {
     private lateinit var adapter: TipsViewPageAdapter
     private lateinit var binding: ActivityNewsBinding
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (!allPermissionsGranted()) {
+                Toast.makeText(
+                    this,
+                    "Tidak mendapatkan permission.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish()
+            }
+        }
+    }
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (!allPermissionsGranted()) {
+            ActivityCompat.requestPermissions(
+                this,
+                REQUIRED_PERMISSIONS,
+                REQUEST_CODE_PERMISSIONS
+            )
+        }
+
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val adapter = NewsViewPagerAdapter(this)
         viewPager.adapter = adapter
@@ -38,13 +73,10 @@ class NewsActivity : AppCompatActivity() {
             val intent = Intent(this, NewsDetailActivity::class.java)
             startActivity(intent)
         }
-        binding.bthome.setOnClickListener {
-            val intent = Intent(this, NewsActivity::class.java)
-            startActivity(intent)
-        }
+
         binding.btscan.setOnClickListener {
-//            val intent = Intent(this, CameraActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
         }
         binding.btproduct.setOnClickListener {
             val intent = Intent(this, ProductActivity::class.java)
@@ -53,6 +85,7 @@ class NewsActivity : AppCompatActivity() {
         binding.btaboutus.setOnClickListener {
 //            val intent = Intent(this, AboutusActivity::class.java)
 //            startActivity(intent)
+            //finish()
         }
 
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -114,5 +147,9 @@ class NewsActivity : AppCompatActivity() {
 
     }
 
+    companion object {
+        val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        const val REQUEST_CODE_PERMISSIONS = 10
+    }
 
 }
