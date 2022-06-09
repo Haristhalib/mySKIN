@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySKIN">
         <activity
+            android:name=".ui.ProductTonerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ProductActivity"
             android:exported="false" />
         <activity

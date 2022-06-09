@@ -45,7 +45,12 @@ class NewsActivity : AppCompatActivity() {
                 handler.removeCallbacks(runnable)
                 handler.postDelayed(runnable, 2000)
             }
+
         })
+        activityNewsBinding.btproduct.setOnClickListener{
+            val intent = Intent(this, ProductActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onPause() {

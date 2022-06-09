@@ -12,4 +12,8 @@
     <string name="trending">Top Trending News</string>
     <string name="tips_trick">Tips on Taking Care Your Facial Skin</string>
     <string name="readmore">Read More</string>
+    <string name="toner">Toner</string>
+    <string name="sun_screen">Sun Screen</string>
+    <string name="serum">Serum</string>
+    <string name="moist">Moisturizer</string>
 </resources>
