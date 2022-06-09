@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MY SKIN</string>
+    <string name="title">MY SKIN</string>
+    <string name="sub_title">Facial Skin Health App</string>
+    <string name="next">Next</string>
+    <string name="title_ob1">ABOUT APPS</string>
+    <string name="title_ob2">TOP FEATURES</string>
+    <string name="title_ob3">FACIAL HEALTH SOLUTION</string>
+    <string name="sub_ob1">Facial Skin Healthcare</string>
+    <string name="sub_ob2">Real Time Scanner</string>
+    <string name="sub_ob3">Facial Treatment Reccomendation</string>
+    <string name="trending">Top Trending News</string>
+    <string name="tips_trick">Tips on Taking Care Your Facial Skin</string>
+    <string name="readmore">Read More</string>
+</resources>

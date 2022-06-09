@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/Splashscreen">
+
+    <fragment
+        android:id="@+id/Splashscreen"
+        android:name="com.haris.myskin.ui.SplashScreenActivity"
+        android:label="SplashScreen"
+        tools:layout="@layout/activity_splash">
+        <action
+            android:id="@+id/action_splashactivity_to_onboardingactivity"
+            app:destination="@id/OnBoarding"
+            app:popUpTo="@id/Splashscreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/OnBoarding"
+        android:name="com.haris.myskin.ui.OnboardingFragment"
+        android:label="OnBoardingFragment"
+        tools:layout="@layout/activity_onboarding">
+        <action
+            android:id="@+id/action_onboardingactivity_to_newsactivity"
+            app:destination="@id/newsActivity"
+            app:popUpTo="@id/OnBoarding"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/newsActivity"
+        android:name="com.haris.myskin.ui.NewsActivity"
+        android:label="activity_news"
+        tools:layout="@layout/activity_news" />
+    <activity
+        android:id="@+id/newsDetailActivity"
+        android:name="com.haris.myskin.ui.NewsDetailActivity"
+        android:label="activity_news_detail"
+        tools:layout="@layout/activity_news_detail" />
+    <action
+        android:id="@+id/action_newstonewsdetail"
+        app:destination="@id/newsDetailActivity"
+        app:popUpTo="@id/newsDetailActivity"
+        app:popUpToInclusive="true"/>
+</navigation>
