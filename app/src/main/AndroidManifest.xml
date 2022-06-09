@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySKIN">
         <activity
+            android:name=".ui.ProductMoistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ProductSerumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ProductSunscreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ProductTonerActivity"
             android:exported="false" />
         <activity

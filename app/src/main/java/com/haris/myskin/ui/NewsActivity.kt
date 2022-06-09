@@ -21,12 +21,12 @@ class NewsActivity : AppCompatActivity() {
     private lateinit var handler: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: TipsViewPageAdapter
-    private lateinit var activityNewsBinding: ActivityNewsBinding
+    private lateinit var binding: ActivityNewsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityNewsBinding = ActivityNewsBinding.inflate(layoutInflater)
-        setContentView(activityNewsBinding.root)
+        binding = ActivityNewsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val adapter = NewsViewPagerAdapter(this)
         viewPager.adapter = adapter
@@ -34,9 +34,25 @@ class NewsActivity : AppCompatActivity() {
         init()
         setUpTransformer()
 
-        activityNewsBinding.tvnewsdetail.setOnClickListener {
+        binding.tvnewsdetail.setOnClickListener {
             val intent = Intent(this, NewsDetailActivity::class.java)
             startActivity(intent)
+        }
+        binding.bthome.setOnClickListener {
+            val intent = Intent(this, NewsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btscan.setOnClickListener {
+//            val intent = Intent(this, CameraActivity::class.java)
+//            startActivity(intent)
+        }
+        binding.btproduct.setOnClickListener {
+            val intent = Intent(this, ProductActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btaboutus.setOnClickListener {
+//            val intent = Intent(this, AboutusActivity::class.java)
+//            startActivity(intent)
         }
 
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -47,10 +63,6 @@ class NewsActivity : AppCompatActivity() {
             }
 
         })
-        activityNewsBinding.btproduct.setOnClickListener{
-            val intent = Intent(this, ProductActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onPause() {

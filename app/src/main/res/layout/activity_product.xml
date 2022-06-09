@@ -27,13 +27,13 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="27dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/ivsunscreen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:srcCompat="@drawable/producttoner" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/ivsunscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -43,7 +43,7 @@
         app:srcCompat="@drawable/productsunscreen" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/ivserum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -61,17 +61,17 @@
         android:text="@string/moist"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintEnd_toEndOf="@+id/ivmoist"
+        app:layout_constraintStart_toStartOf="@+id/ivmoist"
+        app:layout_constraintTop_toBottomOf="@+id/ivmoist" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/ivmoist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="28dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/ivserum"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:srcCompat="@drawable/productmoist" />
 
@@ -98,9 +98,9 @@
         android:text="@string/sun_screen"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintEnd_toEndOf="@+id/ivsunscreen"
+        app:layout_constraintStart_toStartOf="@+id/ivsunscreen"
+        app:layout_constraintTop_toBottomOf="@+id/ivsunscreen" />
 
     <TextView
         android:id="@+id/textView10"
@@ -111,9 +111,9 @@
         android:text="@string/serum"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintEnd_toEndOf="@+id/ivserum"
+        app:layout_constraintStart_toStartOf="@+id/ivserum"
+        app:layout_constraintTop_toBottomOf="@+id/ivserum" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
