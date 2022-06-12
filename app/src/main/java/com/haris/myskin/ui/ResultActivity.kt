@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.haris.myskin.databinding.ActivityResultBinding
 import com.haris.myskin.model.rotateBitmap
+import com.haris.myskin.model.uriToFile
 import java.io.File
 
 class ResultActivity : AppCompatActivity() {
@@ -33,6 +35,9 @@ class ResultActivity : AppCompatActivity() {
         binding.buttoncam.setOnClickListener {
             startCamera()
         }
+        binding.buttongalery.setOnClickListener {
+            startGallery()
+        }
         binding.btscan.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
@@ -42,14 +47,23 @@ class ResultActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btaboutus.setOnClickListener {
-//            val intent = Intent(this, AboutusActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun startCamera() {
         val intent = Intent(this, CameraActivity::class.java)
         launcherIntentCameraX.launch(intent)
     }
+
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
+    }
+
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -71,6 +85,20 @@ class ResultActivity : AppCompatActivity() {
             )
 
             binding.previewImageView.setImageBitmap(result)
+        }
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            binding.popup.visibility = View.GONE
+            binding.buttoncam.visibility = View.GONE
+            binding.buttongalery.visibility = View.GONE
+            binding.textView12.visibility = View.GONE
+            val selectedImg: Uri = result.data?.data as Uri
+            val myFile = uriToFile(selectedImg, this@ResultActivity)
+            binding.previewImageView.setImageURI(selectedImg)
         }
     }
 
