@@ -7,8 +7,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.haris.myskin.R
+import com.haris.myskin.adapter.ProductMoistAdapter
+import com.haris.myskin.adapter.ProductSerumAdapter
 import com.haris.myskin.databinding.ActivityProductSerumBinding
+import com.haris.myskin.model.ProductImage
 
 class ProductSerumActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductSerumBinding
@@ -30,6 +35,7 @@ class ProductSerumActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun allPermissionsGranted() = NewsActivity.REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -60,8 +66,25 @@ class ProductSerumActivity : AppCompatActivity() {
         binding.btaboutus.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
+
+            val images = listOf<ProductImage>(
+                ProductImage(R.drawable.productlist),
+                ProductImage(R.drawable.productlist),
+                ProductImage(R.drawable.productlist),
+                ProductImage(R.drawable.productlist),
+                ProductImage(R.drawable.productlist),
+                ProductImage(R.drawable.productlist)
+            )
+
+
+            val recyclerView = findViewById<RecyclerView>(R.id.rvSerum)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.setHasFixedSize(true)
+            recyclerView.adapter = ProductSerumAdapter(this, images)
+
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         finish()
