@@ -83,8 +83,8 @@ class NewsActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btaboutus.setOnClickListener {
-//            val intent = Intent(this, AboutusActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
             //finish()
         }
 

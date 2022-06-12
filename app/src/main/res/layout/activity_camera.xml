@@ -24,16 +24,6 @@
         app:srcCompat="@drawable/circle" />
 
     <ImageView
-        android:id="@+id/btnGlr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnScn"
-        app:layout_constraintStart_toStartOf="@+id/viewFinder"
-        app:srcCompat="@drawable/galery_icon" />
-
-    <ImageView
         android:id="@+id/btnRtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

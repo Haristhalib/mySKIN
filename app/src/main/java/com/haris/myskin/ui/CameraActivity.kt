@@ -33,7 +33,6 @@ class CameraActivity : AppCompatActivity() {
             cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
             else CameraSelector.DEFAULT_BACK_CAMERA
             startCamera() }
-        binding.btnGlr.setOnClickListener {  }
     }
 
     public override fun onResume() {
