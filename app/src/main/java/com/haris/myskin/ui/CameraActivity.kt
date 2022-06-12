@@ -13,6 +13,7 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import com.haris.myskin.R
 import com.haris.myskin.databinding.ActivityCameraBinding
 import com.haris.myskin.model.createFile
 import java.util.concurrent.ExecutorService
@@ -30,9 +31,11 @@ class CameraActivity : AppCompatActivity() {
 
         binding.btnScn.setOnClickListener { takePhoto() }
         binding.btnRtn.setOnClickListener {
-            cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
-            else CameraSelector.DEFAULT_BACK_CAMERA
-            startCamera() }
+            cameraSelector =
+                if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
+                else CameraSelector.DEFAULT_BACK_CAMERA
+            startCamera()
+        }
     }
 
     public override fun onResume() {
@@ -55,10 +58,11 @@ class CameraActivity : AppCompatActivity() {
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
                         this@CameraActivity,
-                        "Gagal mengambil gambar.",
+                        getString(R.string.cam_error),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
@@ -100,7 +104,7 @@ class CameraActivity : AppCompatActivity() {
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@CameraActivity,
-                    "Gagal memunculkan kamera.",
+                    getString(R.string.cam_fail),
                     Toast.LENGTH_SHORT
                 ).show()
             }

@@ -11,7 +11,7 @@
     <string name="sub_ob3">Facial Treatment Reccomendation</string>
     <string name="trending">Top Trending News</string>
     <string name="tips_trick">Tips on Taking Care Your Facial Skin</string>
-    <string name="readmore">Read More</string>
+    <string name="readmore">View More</string>
     <string name="toner">Toner</string>
     <string name="sun_screen">Sun Screen</string>
     <string name="serum">Serum</string>
@@ -32,4 +32,7 @@
     <string name="copyrigth_2022_c22_ps341">Copyrigth @2022 C22-PS341</string>
     <string name="about2">ABOUT</string>
     <string name="help2">HELP</string>
+    <string name="restricted">Tidak mendapatkan permission.</string>
+    <string name="cam_error">Gagal mengambil gambar</string>
+    <string name="cam_fail">Gagal memunculkan kamera</string>
 </resources>

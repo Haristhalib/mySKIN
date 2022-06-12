@@ -23,7 +23,7 @@ class ProductSerumActivity : AppCompatActivity() {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
-                    "Tidak mendapatkan permission.",
+                    getString(R.string.restricted),
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
