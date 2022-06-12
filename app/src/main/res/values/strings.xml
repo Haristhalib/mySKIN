@@ -23,18 +23,13 @@
     <string name="product">PRODUCT</string>
     <string name="news_detail">NEWS</string>
     <string name="about_us">ABOUT US</string>
-    <
-    <
-    <
-    <
-    <
-    <
-    < HEAD
     <string name="camera">camera</string>
     <string name="galeri">Galeri</string>
     <string name="ambil_gambar_dari">Ambil Gambar Dari :</string>
     <string name="help">Help</string>
     <string name="about">About</string>
-    =======
-    >>>>>>> origin/master
+    <string name="version_1_6_22">Version 1.6.22</string>
+    <string name="copyrigth_2022_c22_ps341">Copyrigth @2022 C22-PS341</string>
+    <string name="about2">ABOUT</string>
+    <string name="help2">HELP</string>
 </resources>
